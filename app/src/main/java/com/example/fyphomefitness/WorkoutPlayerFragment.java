@@ -23,7 +23,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static android.graphics.Color.BLUE;
 import static android.graphics.Color.WHITE;
 
-public class WorkoutPlayerFragment extends Fragment{
+public class WorkoutPlayerFragment extends Fragment {
 
     //Interface
     private MyInterface myInterface;
@@ -61,7 +61,7 @@ public class WorkoutPlayerFragment extends Fragment{
     private long mTimeLeft = mStartTime;
 
     //Shared Preferences
-    public static final String mSPWorkOutsCompleted ="text5";
+    public static final String mSPWorkOutsCompleted = "text5";
 
     private View view;
 
@@ -97,7 +97,7 @@ public class WorkoutPlayerFragment extends Fragment{
     }
 
     private void startTimer() {
-        mCountDownTimer = new CountDownTimer(mTimeLeft, 1000){
+        mCountDownTimer = new CountDownTimer(mTimeLeft, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -138,10 +138,10 @@ public class WorkoutPlayerFragment extends Fragment{
     }
 
     private void updateCountDownText() {
-        int minutes = (int) (mTimeLeft /1000)/60;
-        int seconds = (int) (mTimeLeft /1000)%60;
+        int minutes = (int) (mTimeLeft / 1000) / 60;
+        int seconds = (int) (mTimeLeft / 1000) % 60;
 
-        String timeLeftFormatted = String.format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
 
         mTxtVwCountDown.setText(timeLeftFormatted);
     }
@@ -182,12 +182,12 @@ public class WorkoutPlayerFragment extends Fragment{
 
         i++;
 
-        if(i < mExerciseNameArray.size()){
+        if (i < mExerciseNameArray.size()) {
             mTxtVwExerciseName.setText(mExerciseNameArray.get(i));
             mTxtVwExerciseReps.setText("x" + mExerciseRepArray.get(i));
         }
 
-        if(i == mExerciseNameArray.size()){
+        if (i == mExerciseNameArray.size()) {
             pauseTimer();
             getActivity().getSupportFragmentManager().popBackStack();
         }
@@ -201,19 +201,20 @@ public class WorkoutPlayerFragment extends Fragment{
         mExerciseReps = mExerciseRepArray.get(0);
 
         mTxtVwExerciseName.setText(mExerciseName);
-        mTxtVwExerciseReps.setText("x"+ mExerciseReps);
+        mTxtVwExerciseReps.setText("x" + mExerciseReps);
 
-    }public void saveData(){
-        mWorkoutCompletedCount ++;
+    }
+
+    public void saveData() {
+        mWorkoutCompletedCount++;
         SharedPreferences sharedPreferences = getActivity().getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(mSPWorkOutsCompleted, mWorkoutCompletedCount);
         editor.apply();
 
-        Toast.makeText(getActivity(),"Workout Count Saved",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Workout Count Saved", Toast.LENGTH_SHORT).show();
         return;
     }
-
 
 
     @Override
