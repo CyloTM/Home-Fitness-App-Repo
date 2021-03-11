@@ -60,10 +60,9 @@ public class WorkoutPlayerFragment extends Fragment {
     private CountDownTimer mCountDownTimer;
     private long mTimeLeft = mStartTime;
 
-    //Shared Preferences
-    public static final String mSPWorkOutsCompleted = "text5";
-
     private View view;
+
+    private boolean mWorkoutCompleted = false;
 
 
     @Override
@@ -190,6 +189,7 @@ public class WorkoutPlayerFragment extends Fragment {
         if (i == mExerciseNameArray.size()) {
             pauseTimer();
             getActivity().getSupportFragmentManager().popBackStack();
+            mWorkoutCompleted = true;
         }
     }
 
@@ -205,25 +205,19 @@ public class WorkoutPlayerFragment extends Fragment {
 
     }
 
-    public void saveData() {
-        mWorkoutCompletedCount++;
-        SharedPreferences sharedPreferences = getActivity().getPreferences(MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(mSPWorkOutsCompleted, mWorkoutCompletedCount);
-        editor.apply();
 
-        Toast.makeText(getActivity(), "Workout Count Saved", Toast.LENGTH_SHORT).show();
-        return;
-    }
 
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         i = 0;
-        saveData();
-        myInterface.closeActivity();
-        pauseTimer();
+
+        if(mWorkoutCompleted){
+            mWorkoutCompleted = false;
+            myInterface.closeActivity();
+        }
+
         resetTimer();
 
     }

@@ -1,6 +1,7 @@
 package com.example.fyphomefitness;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -43,6 +45,13 @@ public class WorkOutList extends AppCompatActivity implements MyInterface {
     int count;
 
     private Button mBtnProceed;
+
+    //Save
+    public static final String Shared_Pref = "sharedPrefs";
+
+    //Load
+    public static final String mSPWorkOutsCompleted = "text5";
+    private int mWorkoutsCompleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +90,7 @@ public class WorkOutList extends AppCompatActivity implements MyInterface {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        saveData();
         count = fragmentManager.getBackStackEntryCount();
         for (int i = 0; i<count;i++){
             fragmentManager.popBackStack();
@@ -160,8 +170,26 @@ public class WorkOutList extends AppCompatActivity implements MyInterface {
             mExerciseRepsArray.add(0,"4");
             mExerciseRepsArray.add(0,"5");
         }
+
+        loadData();
+        saveData();
     }
 
+
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Shared_Pref, MODE_PRIVATE);
+        mWorkoutsCompleted = sharedPreferences.getInt(mSPWorkOutsCompleted, 0);
+    }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Shared_Pref, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(mSPWorkOutsCompleted, mWorkoutsCompleted);
+        editor.apply();
+
+        Toast.makeText(WorkOutList.this, "Workout Count Saved", Toast.LENGTH_SHORT).show();
+        return;
+    }
 
     @Override
     protected void onDestroy() {
@@ -172,6 +200,10 @@ public class WorkOutList extends AppCompatActivity implements MyInterface {
 
     @Override
     public void closeActivity(){
+        mWorkoutsCompleted = mWorkoutsCompleted + 1;
+        saveData();
+        loadData();
+        mBtnProceed.setVisibility(View.VISIBLE);
         finish();
     }
 

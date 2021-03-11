@@ -36,9 +36,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ListView listView;
     View view;
 
+
+    //Save
+    public static final String Shared_Pref = "sharedPrefs";
+
+    //Load
     private TextView mTxtVwWorkoutsComplete;
     public static final String mSPWorkOutsCompleted ="text5";
     private int mWorkoutsCompleted;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
+        updateData();
+    }
 
     @Override
     public void lockDrawer() {
@@ -109,9 +121,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(Shared_Pref, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(mSPWorkOutsCompleted, mWorkoutsCompleted);
+        editor.apply();
+
+        Toast.makeText(MainActivity.this, "Workout Count Saved", Toast.LENGTH_SHORT).show();
+        return;
+    }
+
     public void loadData() {
-        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
-        mWorkoutsCompleted = sharedPreferences.getInt(mSPWorkOutsCompleted,0);
+        SharedPreferences sharedPreferences = getSharedPreferences(Shared_Pref, MODE_PRIVATE);
+        mWorkoutsCompleted = sharedPreferences.getInt(mSPWorkOutsCompleted, 0);
     }
 
     public void updateData() {
@@ -130,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setNavigationIcon(R.drawable.ic_android_black_24dp);
         toolbar.setTitle(R.string.app_name);
         frameLayout.setClickable(false);
+        saveData();
     }
 
     private class CustomAdapter extends BaseAdapter {
