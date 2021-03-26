@@ -9,13 +9,13 @@
 
     <fragment
         android:id="@id/profileScreen"
-        android:name="com.example.fyphomefitness.profileFragment"
+        android:name="com.example.fyphomefitness.fragments.profileFragment"
         android:label="@string/profile"
         tools:layout="@layout/profile" />
 
     <fragment
         android:id="@id/customScreen"
-        android:name="com.example.fyphomefitness.customWorkoutFragment"
+        android:name="com.example.fyphomefitness.fragments.customWorkoutFragment"
         android:label="@string/customWorkout"
         tools:layout="@layout/customworkouts" />
     <activity

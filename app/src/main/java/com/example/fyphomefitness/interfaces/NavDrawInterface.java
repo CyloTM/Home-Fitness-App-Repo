@@ -1,4 +1,4 @@
-package com.example.fyphomefitness;
+package com.example.fyphomefitness.interfaces;
 
 public interface NavDrawInterface {
     public void lockDrawer();

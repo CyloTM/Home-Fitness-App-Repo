@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical">
+
+    <ImageButton
+        android:id ="@+id/image_view_check"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:src="@drawable/ic_check"
+        android:background="?attr/selectableItemBackground"
+        />
+
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="0dp"
+        android:layout_weight="60"
+        android:layout_height="wrap_content"
+        android:textSize="23sp"
+        android:text="Enter Name"
+        android:lines="1"
+        android:padding="10dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/edit_text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="60"
+        android:text="New Exercise"
+        android:textSize="23dp"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:imeOptions="flagNoExtractUi"/>
+
+    <TextView
+        android:layout_weight="10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="x"
+        android:gravity="right"/>
+
+    <TextView
+        android:id="@+id/text_view_repetitions"
+        android:layout_width="0dp"
+        android:layout_weight="30"
+        android:layout_height="wrap_content"
+        android:textSize="23sp"
+        android:text="0"
+        android:padding="10dp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/edit_text_repetitions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="30"
+        android:text=""
+        android:textSize="23dp"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:inputType="number"
+        android:maxLength="3"
+        android:imeOptions="flagNoExtractUi"/>
+
+
+
+
+</LinearLayout>

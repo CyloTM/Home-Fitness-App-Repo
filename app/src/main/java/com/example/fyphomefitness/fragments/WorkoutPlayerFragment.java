@@ -1,7 +1,6 @@
-package com.example.fyphomefitness;
+package com.example.fyphomefitness.fragments;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
@@ -11,15 +10,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.fyphomefitness.interfaces.MyInterface;
+import com.example.fyphomefitness.R;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
-import static android.content.Context.MODE_PRIVATE;
 import static android.graphics.Color.BLUE;
 import static android.graphics.Color.WHITE;
 

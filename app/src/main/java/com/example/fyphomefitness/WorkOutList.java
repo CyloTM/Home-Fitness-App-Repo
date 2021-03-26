@@ -18,6 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.fyphomefitness.fragments.WorkoutPlayerFragment;
+import com.example.fyphomefitness.interfaces.MyInterface;
+
 import java.util.ArrayList;
 
 public class WorkOutList extends AppCompatActivity implements MyInterface {

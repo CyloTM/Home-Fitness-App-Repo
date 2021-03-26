@@ -22,6 +22,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fyphomefitness.fragments.customWorkoutFragment;
+import com.example.fyphomefitness.fragments.profileFragment;
+import com.example.fyphomefitness.interfaces.NavDrawInterface;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, NavDrawInterface {

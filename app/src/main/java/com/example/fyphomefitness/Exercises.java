@@ -2,12 +2,12 @@ package com.example.fyphomefitness;
 
 import java.util.ArrayList;
 
-public class Exercise {
+public class Exercises {
 
     private ArrayList<String> mExerciseName;
     private ArrayList<String> mExerciseRep;
 
-    public Exercise(ArrayList<String> mExerciseName, ArrayList<String> mExerciseRep) {
+    public Exercises(ArrayList<String> mExerciseName, ArrayList<String> mExerciseRep) {
         this.mExerciseName = mExerciseName;
         this.mExerciseRep = mExerciseRep;
     }

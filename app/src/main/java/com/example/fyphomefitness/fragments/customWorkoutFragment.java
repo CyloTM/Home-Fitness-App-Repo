@@ -1,4 +1,4 @@
-package com.example.fyphomefitness;
+package com.example.fyphomefitness.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.fyphomefitness.interfaces.NavDrawInterface;
+import com.example.fyphomefitness.R;
 
 public class customWorkoutFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.fyphomefitness;
+package com.example.fyphomefitness.fragments;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+
+import com.example.fyphomefitness.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

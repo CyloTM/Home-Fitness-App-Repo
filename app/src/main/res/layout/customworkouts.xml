@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/customScreen"
-    tools:context=".customWorkoutFragment"
+    tools:context=".fragments.customWorkoutFragment"
     android:background="@color/white">
 
     <ImageView
