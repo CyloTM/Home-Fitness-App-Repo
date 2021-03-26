@@ -1,4 +1,4 @@
-package com.example.fyphomefitness.fragments;
+package com.example.fyphomefitness.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;

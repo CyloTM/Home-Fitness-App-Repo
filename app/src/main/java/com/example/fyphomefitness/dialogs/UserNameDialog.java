@@ -1,8 +1,7 @@
-package com.example.fyphomefitness.fragments;
+package com.example.fyphomefitness.dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,18 +18,18 @@ import com.example.fyphomefitness.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class HeightCustomDialog extends AppCompatDialogFragment {
+public class UserNameDialog extends AppCompatDialogFragment {
 
-    private EditText editHeight;
-    public heightDialogListener dialogListener;
+    private EditText editUserName;
+    public userNameDialogListener dialogListener;
 
-    public static final String hText = "text3";
+    public static final String Text = "text";
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         try {
-            dialogListener = (heightDialogListener) getTargetFragment();
+            dialogListener = (userNameDialogListener) getTargetFragment();
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + "implement the ting");
         }
@@ -38,43 +37,35 @@ public class HeightCustomDialog extends AppCompatDialogFragment {
 
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View v = inflater.inflate(R.layout.heightdialog, null);
-
-        editHeight = v.findViewById(R.id.edituserheight);
+        View v = inflater.inflate(R.layout.usernamedialog, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
+        editUserName = v.findViewById(R.id.editusername);
         builder.setView(v)
-                .setTitle("Height")
+                .setTitle("UserName")
                 .setNegativeButton("Cancel", (dialog, which) -> {})
-                .setPositiveButton("Ok", (dialog, which) -> {
-                    String height = editHeight.getText().toString();
-                    if (!editHeight.equals("")) {
-                        dialogListener.applyHeightText(height);
+                .setPositiveButton("ok", (dialog, which) -> {
+                    String username = editUserName.getText().toString();
+                    if (!editUserName.equals("")) {
+                        dialogListener.applyUserNameText(username);
                         saveData();
                     }
-
                 });
-
         return builder.create();
-
-
     }
 
-    public interface heightDialogListener {
-        void applyHeightText(String height);
+    public interface userNameDialogListener {
+        void applyUserNameText(String username);
     }
 
     public void saveData(){
         SharedPreferences sharedPreferences = getActivity().getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(hText, editHeight.getText().toString());
+        editor.putString(Text, editUserName.getText().toString());
         editor.apply();
 
-        Toast.makeText(getActivity(),"Height  Saved",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"Name Saved",Toast.LENGTH_SHORT).show();
         return;
     }
-
 
 }

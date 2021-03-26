@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.fyphomefitness.dialogs.HeightCustomDialog;
+import com.example.fyphomefitness.dialogs.UserNameDialog;
+import com.example.fyphomefitness.dialogs.WeightCustomDialog;
 import com.example.fyphomefitness.interfaces.NavDrawInterface;
 import com.example.fyphomefitness.R;
 

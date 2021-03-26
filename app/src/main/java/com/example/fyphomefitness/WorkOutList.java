@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class WorkOutList extends AppCompatActivity implements MyInterface {
 
     public ListView mListView;
-    public Exercise e;
+    public Exercises e;
 
 
     //fragment
@@ -141,7 +141,7 @@ public class WorkOutList extends AppCompatActivity implements MyInterface {
 
         if (eName.equals("Upper Body")){
 
-            e = new Exercise(mExerciseNameArray, mExerciseRepsArray);
+            e = new Exercises(mExerciseNameArray, mExerciseRepsArray);
 
             mExerciseNameArray.add(0,"Push Ups");
             mExerciseNameArray.add(1,"Lateral Push Ups");
@@ -159,7 +159,7 @@ public class WorkOutList extends AppCompatActivity implements MyInterface {
         }
         else if (eName.equals("Lower body")){
 
-            e = new Exercise(mExerciseNameArray, mExerciseRepsArray);
+            e = new Exercises(mExerciseNameArray, mExerciseRepsArray);
 
             mExerciseNameArray.add(0,"Legs1");
             mExerciseNameArray.add(1,"Legs2");
